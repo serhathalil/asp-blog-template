@@ -1,0 +1,210 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage2.master.cs" Inherits="MasterPage2" %>
+
+<!DOCTYPE html>
+
+ <html lang="en">
+
+<head runat="server">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Serhat Halil Silsüpür</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom fonts for this template -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <!-- Custom styles for this template -->
+    <link href="css/clean-blog.min.css" rel="stylesheet">
+
+    <style type="text/css">
+        .auto-style1 {
+            height: 648px;
+        }
+    </style>
+    <link href="main2.css" rel="stylesheet" />
+</head>
+<body>
+    <form id="form1" runat="server">
+
+        <div class="masterMenu">
+            <!-- Navigation -->
+            <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+                <div class="container">
+                    <a class="navbar-brand" href="Default.aspx">SERHAT HALİL SİLSÜPÜR</a>
+                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                        Menu
+         
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarResponsive">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="Default.aspx">BLOG</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="hakkimda2.aspx">HAKKIMDA</a>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Kategoriler</a>
+                                <div class="dropdown-menu">
+                                    <asp:DataList ID="dl_dropKategoriMaster" runat="server">
+                                        <ItemTemplate>
+                                            <a class="dropdown-item" href="kategoriDetay.aspx?kategoriID=<%#Eval("kategoriID") %>">
+                                                <asp:Label ID="Label8" runat="server" Text='<%# Eval("kategoriAdi") %>'></asp:Label>
+                                            </a>
+
+                                        </ItemTemplate>
+                                    </asp:DataList>
+                                </div>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="egitim.aspx">EĞİTİM VİDEOLARI</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="iletisim.aspx">İLETİŞİM</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-10 mx-auto" style="margin-bottom: 80px;">
+                        <div class="site-heading">
+                            <h3></h3>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+
+
+
+        <div class="container">
+            <div class="row">
+
+                <!-- Blog Entries Column -->
+                <div class="col-md-8 ">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+
+
+                <!-- Sidebar Widgets Column -->
+                <div class="col-md-4">
+                    <!-- Search Widget -->
+                    <div class="card my-4">
+                        <h5 class="card-header">Ara</h5>
+                        <div class="card-body">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search for..." />
+                                <span class="input-group-btn">
+                                    <button class="btn btn-secondary" type="button">Go!</button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Categories Widget -->
+                    <div class="card my-4">
+                        <h5 class="card-header">Kategoriler</h5>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-6">
+
+                                    <asp:DataList ID="dl_kategoriGetir" runat="server" Width="195px">
+                                        <ItemTemplate>
+                                            <table class="w-100">
+                                                <tr>
+                                                    <td>
+
+                                                        <a href="kategoridetay.aspx?kategoriID=<%#Eval("kategoriID") %>">
+                                                            <asp:Label ID="Label1" runat="server" Text='<%# Eval("kategoriAdi") %>'></asp:Label></a>
+                                                        &nbsp;(<asp:Label ID="Label7" runat="server" Text='<%# Eval("kategoriAdet") %>'></asp:Label>
+                                                        )</td>
+
+                                                </tr>
+                                            </table>
+                                        </ItemTemplate>
+                                    </asp:DataList>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-10 mx-auto">
+                        <ul class="list-inline text-center">
+                            <li class="list-inline-item">
+                                <a href="#">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-youtube fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                        <p class="copyright text-muted">&copy; SERHAT HALİL SİLSÜPÜR 2017</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </form>
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper/popper.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    
+    <!-- Custom scripts for this template -->
+    <script src="js/clean-blog.min.js"></script>
+    <%--benim yazdıklarım--%>
+    <script src="main.js"></script>
+</body>
+</html>
